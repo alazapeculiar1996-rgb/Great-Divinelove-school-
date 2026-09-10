@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Great Divinelove Nursery and Primary School</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f7f9fc;
+}
+
+header {
+  background: #073b7a;
+  color: white;
+  padding: 18px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #073b7a, #1597d4);
+  color: white;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.button {
+  display: inline-block;
+  background: #f5c400;
+  color: #111;
+  padding: 13px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 5px;
+}
+
+section {
+  padding: 55px 7%;
+}
+
+.section-title {
+  text-align: center;
+  color: #073b7a;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.about {
+  text-align: center;
+  max-width: 850px;
+  margin: auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card h3 {
+  color: #073b7a;
+  margin-bottom: 10px;
+}
+
+.portal {
+  background: #eaf5ff;
+}
+
+.portal .card {
+  border-top: 5px solid #073b7a;
+}
+
+.admission {
+  text-align: center;
+  background: #073b7a;
+  color: white;
+}
+
+.admission h2 {
+  margin-bottom: 15px;
+}
+
+footer {
+  background: #062d5c;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .hero h1 {
+    font-size: 29px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Great Divinelove School</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#classes">Classes</a>
+      <a href="#portal">Portals</a>
+      <a href="#admission">Admission</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <h1>Great Divinelove Nursery and Primary School</h1>
+  <p>Wisdom from God</p>
+  <p>Building confident, creative and responsible learners for a brighter future.</p>
+
+  <a class="button" href="#admission">Apply for Admission</a>
+  <a class="button" href="#portal">School Portal</a>
+</section>
+
+<section id="about">
+  <h2 class="section-title">Welcome to Great Divinelove</h2>
+
+  <div class="about">
+    <p>
+      Welcome to Great Divinelove Nursery and Primary School.
+      We are committed to providing quality education in a safe,
+      caring and stimulating environment where every child can learn,
+      grow and discover their potential.
+    </p>
+  </div>
+</section>
+
+<section id="classes">
+  <h2 class="section-title">Our Classes</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Nursery</h3>
+      <p>Early childhood education through learning, creativity and play.</p>
+    </div>
+
+    <div class="card">
+      <h3>Primary</h3>
+      <p>Strong academic foundations and development of essential life skills.</p>
+    </div>
+
+    <div class="card">
+      <h3>Academic Excellence</h3>
+      <p>Encouraging every learner to develop confidence and achieve their best.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portal" id="portal">
+  <h2 class="section-title">School Portals</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>👩‍🏫 Teacher Portal</h3>
+      <p>Access classes, pupils, attendance, results and assignments.</p>
+      <a class="button" href="#">Teacher Login</a>
+    </div>
+
+    <div class="card">
+      <h3>👨‍👩‍👧 Parent Portal</h3>
+      <p>View your child's information, results, attendance and school updates.</p>
+      <a class="button" href="#">Parent Login</a>
+    </div>
+
+    <div class="card">
+      <h3>🔐 Admin Portal</h3>
+      <p>Manage pupils, teachers, admissions, fees, results and school activities.</p>
+      <a class="button" href="#">Admin Login</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="admission" class="admission">
+  <h2>Admissions Are Open</h2>
+  <p>Give your child the opportunity to learn, grow and shine.</p>
+  <br>
+  <a class="button" href="#">Start Online Registration</a>
+</section>
+
+<section>
+  <h2 class="section-title">School Services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>📝 Online Registration</h3>
+      <p>Parents will be able to register their children online.</p>
+    </div>
+
+    <div class="card">
+      <h3>💰 School Fees</h3>
+      <p>Parents can view school fees and payment records.</p>
+    </div>
+
+    <div class="card">
+      <h3>👕 Uniforms</h3>
+      <p>View and request school uniforms and other school items.</p>
+    </div>
+
+    <div class="card">
+      <h3>📚 Books</h3>
+      <p>Parents can view and request required textbooks and learning materials.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+
+  <div class="about">
+    <p><strong>Great Divinelove Nursery and Primary School</strong></p>
+    <p>Delta State, Nigeria</p>
+    <p>For admissions and enquiries, please contact the school.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Great Divinelove Nursery and Primary School</p>
+  <p>Wisdom from God</p>
+</footer>
+
+</body>
+  </html>
