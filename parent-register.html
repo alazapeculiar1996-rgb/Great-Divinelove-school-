@@ -38,6 +38,11 @@ h2 {
     color: #005b96;
 }
 
+label {
+    display: block;
+    margin-top: 12px;
+}
+
 input {
     width: 100%;
     padding: 13px;
@@ -55,6 +60,16 @@ button {
     border: none;
     border-radius: 6px;
     font-size: 16px;
+}
+
+button:disabled {
+    background: #999;
+}
+
+.message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .back {
@@ -85,27 +100,110 @@ Please register to access the Great Divinelove School Parent Portal.
 </p>
 
 <label>Parent/Guardian Name</label>
-<input type="text" placeholder="Enter your full name">
+<input id="fullName" type="text" placeholder="Enter your full name">
 
 <label>Phone Number</label>
-<input type="tel" placeholder="Enter your phone number">
+<input id="phone" type="tel" placeholder="Enter your phone number">
 
 <label>Email Address</label>
-<input type="email" placeholder="Enter your email">
+<input id="email" type="email" placeholder="Enter your email">
 
 <label>Password</label>
-<input type="password" placeholder="Create a password">
+<input id="password" type="password" placeholder="Create a password">
 
 <label>Confirm Password</label>
-<input type="password" placeholder="Confirm your password">
+<input id="confirmPassword" type="password" placeholder="Confirm your password">
 
-<button type="button">Create Account</button>
+<button id="registerButton" type="button">
+Create Account
+</button>
 
-<a class="back" href="parent-portal.html">← Back to Parent Login</a>
+<div id="message" class="message"></div>
+
+<p style="text-align:center; margin-top:20px;">
+Already have an account?
+<a href="parent-portal.html">Login</a>
+</p>
+
+<a class="back" href="index.html">
+← Back to School Website
+</a>
 
 </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL = "https://zojuenxfeswlmvrhbzib.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_mY2UJ2aw7Oh-Ffs-LZoJFw_3W6-9G0Q";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+document.getElementById("registerButton").addEventListener("click", async function () {
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const message = document.getElementById("message");
+    const button = document.getElementById("registerButton");
+
+    message.textContent = "";
+
+    if (!fullName || !phone || !email || !password || !confirmPassword) {
+        message.textContent = "Please fill in all the fields.";
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        message.textContent = "Passwords do not match.";
+        return;
+    }
+
+    if (password.length < 6) {
+        message.textContent = "Password must be at least 6 characters.";
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Creating Account...";
+
+    const { data, error } = await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            data: {
+                full_name: fullName,
+                phone: phone
+            },
+            emailRedirectTo:
+                "https://alazapeculiar1996-rgb.github.io/Great-Divinelove-school-/parent-portal.html"
+        }
+    });
+
+    if (error) {
+        message.textContent = error.message;
+        button.disabled = false;
+        button.textContent = "Create Account";
+        return;
+    }
+
+    message.textContent =
+        "Registration successful! Please check your email and confirm your account before logging in.";
+
+    button.disabled = false;
+    button.textContent = "Account Created";
+});
+
+</script>
 
 </body>
 </html>
